@@ -34,9 +34,11 @@ function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <p className="text-red-500 font-semibold mb-4">
-            875 Systems • Comanda 10
-          </p>
+          <img
+            src="/images/logo.png"
+            alt="875 Systems"
+            className="w-40 mb-4 drop-shadow-[0_0_20px_rgba(255,0,0,0.4)]"
+          />
 
           <h1 className="text-4xl md:text-6xl font-bold leading-tight">
             Mais controle, mais agilidade e mais vendas para o seu negócio.
