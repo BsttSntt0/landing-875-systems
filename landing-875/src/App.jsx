@@ -290,7 +290,7 @@ function Cases() {
     {
       name: "Bar do Pirata",
       link: "https://www.instagram.com/bardopirata_ibira?igsh=MXgzYjdhazhyNjl4dA==",
-      video: null,
+      video: "/videos/bardopirata.mp4",
     },
     {
       name: "Porções & Cia",
