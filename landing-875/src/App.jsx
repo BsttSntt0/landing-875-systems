@@ -1,5 +1,13 @@
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle, MessageCircle } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle,
+  MessageCircle,
+  Headphones,
+  CashRegister,
+  Megaphone,
+  TrendingUp,
+} from "lucide-react";
 import "./index.css";
 
 const whatsapp = "https://wa.me/message/BABWIOHDLQI6L1";
@@ -30,10 +38,7 @@ function Hero() {
   return (
     <section className="min-h-screen flex items-center px-6 py-20">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
           <img
             src="/images/logo.png"
             alt="875 Systems"
@@ -85,7 +90,7 @@ function ComoFunciona() {
           {cards.map((item) => (
             <div
               key={item}
-              className="min-w-70 bg-[#111] border border-zinc-800 rounded-2xl p-5"
+              className="min-w-[280px] bg-[#111] border border-zinc-800 rounded-2xl p-5"
             >
               <div className="h-40 bg-zinc-900 rounded-xl mb-5 flex items-center justify-center text-zinc-500">
                 Imagem / vídeo
@@ -96,8 +101,7 @@ function ComoFunciona() {
               <h3 className="text-xl font-bold">{item}</h3>
 
               <p className="text-zinc-400 mt-2">
-                Demonstração simples e visual para facilitar o dia a dia da
-                operação.
+                Demonstração simples e visual para facilitar o dia a dia da operação.
               </p>
             </div>
           ))}
@@ -110,7 +114,6 @@ function ComoFunciona() {
 function Ecossistema() {
   return (
     <section className="px-6 py-24 bg-black text-center relative overflow-hidden">
-      
       <h2 className="text-3xl md:text-5xl font-bold mb-4">
         Ecossistema completo
       </h2>
@@ -119,41 +122,38 @@ function Ecossistema() {
         Gestão, atendimento, caixa, marketing e tráfego funcionando juntos.
       </p>
 
-      {/* MOBILE (CIRCULAR) */}
       <div className="md:hidden relative w-full flex justify-center items-center">
-        
-        <div className="relative w-75 h-75">
+        <div className="relative w-[330px] h-[330px]">
+          <div className="absolute inset-0 rounded-full border border-red-500/50 shadow-[0_0_35px_rgba(255,0,0,0.45)]" />
 
-          {/* CENTRO */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <img src="/images/logo.png" className="w-28 mb-3" />
-            <p className="text-sm text-zinc-400 text-center px-6">
-              Gestão, atendimento, caixa e marketing integrados
+          <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
+            <img
+              src="/images/logo.png"
+              alt="875 Systems"
+              className="w-32 mb-3 drop-shadow-[0_0_25px_rgba(255,0,0,0.8)]"
+            />
+            <p className="text-sm text-zinc-300 max-w-[220px]">
+              Gestão, atendimento, caixa, marketing e tráfego funcionando juntos.
             </p>
           </div>
 
-          {/* ITEM 1 */}
-          <CircleItem text="Atendimento" top="0%" left="50%" />
+          <CircleItem text="Atendimento" icon={<Headphones size={28} />} top="0%" left="50%" />
+          <CircleItem text="Caixa" icon={<CashRegister size={28} />} top="50%" left="100%" />
+          <CircleItem text="Marketing" icon={<Megaphone size={28} />} top="100%" left="50%" />
+          <CircleItem text="Vendas" icon={<TrendingUp size={28} />} top="50%" left="0%" />
 
-          {/* ITEM 2 */}
-          <CircleItem text="Caixa" top="50%" left="100%" />
-
-          {/* ITEM 3 */}
-          <CircleItem text="Marketing" top="100%" left="50%" />
-
-          {/* ITEM 4 */}
-          <CircleItem text="Vendas" top="50%" left="0%" />
-
+          <ArrowGlow top="18%" left="75%" rotate="45deg" />
+          <ArrowGlow top="75%" left="75%" rotate="135deg" />
+          <ArrowGlow top="75%" left="18%" rotate="225deg" />
+          <ArrowGlow top="18%" left="18%" rotate="315deg" />
         </div>
       </div>
 
-      {/* DESKTOP (MELHORADO) */}
       <div className="hidden md:grid md:grid-cols-5 gap-6 mt-16 max-w-6xl mx-auto">
         {["Sistema", "Atendimento", "Caixa", "Marketing", "Vendas"].map((item) => (
           <div
             key={item}
-            className="bg-[#0f0f0f] border border-red-500/20 rounded-2xl p-6 
-            hover:border-red-500 hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] transition"
+            className="bg-[#111] border border-red-500/30 rounded-2xl p-6 hover:scale-105 hover:border-red-500 hover:shadow-[0_0_30px_rgba(255,0,0,0.45)] transition duration-300"
           >
             <h3 className="font-bold text-lg">{item}</h3>
           </div>
@@ -163,18 +163,27 @@ function Ecossistema() {
   );
 }
 
-function CircleItem({ text, top, left }) {
+function CircleItem({ text, icon, top, left }) {
   return (
     <div
-      className="absolute -translate-x-1/2 -translate-y-1/2"
+      className="absolute -translate-x-1/2 -translate-y-1/2 z-20"
       style={{ top, left }}
     >
-      <div className="w-20 h-20 rounded-full border border-red-500 
-      flex items-center justify-center text-xs font-semibold
-      bg-black text-white
-      shadow-[0_0_15px_rgba(255,0,0,0.6)]">
-        {text}
+      <div className="w-24 h-24 rounded-full border border-red-500 bg-black flex flex-col items-center justify-center gap-1 text-white shadow-[0_0_25px_rgba(255,0,0,0.85)] hover:scale-110 hover:shadow-[0_0_45px_rgba(255,0,0,1)] transition duration-300">
+        <div className="text-red-500">{icon}</div>
+        <span className="text-xs font-bold">{text}</span>
       </div>
+    </div>
+  );
+}
+
+function ArrowGlow({ top, left, rotate }) {
+  return (
+    <div
+      className="absolute text-red-500 text-4xl z-10 drop-shadow-[0_0_12px_rgba(255,0,0,1)]"
+      style={{ top, left, transform: `rotate(${rotate})` }}
+    >
+      →
     </div>
   );
 }
@@ -198,7 +207,7 @@ function Marketing() {
           {[1, 2, 3, 4].map((i) => (
             <div
               key={i}
-              className="aspect-9/16 bg-zinc-900 border border-zinc-800 rounded-2xl flex items-center justify-center text-zinc-500"
+              className="aspect-[9/16] bg-zinc-900 border border-zinc-800 rounded-2xl flex items-center justify-center text-zinc-500"
             >
               Vídeo {i}
             </div>
@@ -242,7 +251,7 @@ function Cases() {
 
 function CTA() {
   return (
-    <section className="px-6 py-24 bg-linear-to-b from-zinc-950 to-black text-center">
+    <section className="px-6 py-24 bg-gradient-to-b from-zinc-950 to-black text-center">
       <h2 className="text-3xl md:text-5xl font-bold">
         Seu negócio mais organizado, rápido e vendendo mais.
       </h2>
