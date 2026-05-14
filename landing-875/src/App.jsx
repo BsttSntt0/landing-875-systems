@@ -108,31 +108,74 @@ function ComoFunciona() {
 }
 
 function Ecossistema() {
-  const items = ["Sistema", "Atendimento", "Caixa", "Marketing", "Vendas"];
-
   return (
-    <section className="px-6 py-24">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl md:text-5xl font-bold">
-          Ecossistema completo
-        </h2>
+    <section className="px-6 py-24 bg-black text-center relative overflow-hidden">
+      
+      <h2 className="text-3xl md:text-5xl font-bold mb-4">
+        Ecossistema completo
+      </h2>
 
-        <p className="text-zinc-400 mt-4">
-          Gestão, atendimento, caixa, marketing e tráfego funcionando juntos.
-        </p>
+      <p className="text-zinc-400 mb-16">
+        Gestão, atendimento, caixa, marketing e tráfego funcionando juntos.
+      </p>
 
-        <div className="grid md:grid-cols-5 gap-4 mt-12">
-          {items.map((item) => (
-            <div
-              key={item}
-              className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6"
-            >
-              <h3 className="font-bold">{item}</h3>
-            </div>
-          ))}
+      {/* MOBILE (CIRCULAR) */}
+      <div className="md:hidden relative w-full flex justify-center items-center">
+        
+        <div className="relative w-[300px] h-[300px]">
+
+          {/* CENTRO */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center">
+            <img src="/images/logo.png" className="w-28 mb-3" />
+            <p className="text-sm text-zinc-400 text-center px-6">
+              Gestão, atendimento, caixa e marketing integrados
+            </p>
+          </div>
+
+          {/* ITEM 1 */}
+          <CircleItem text="Atendimento" top="0%" left="50%" />
+
+          {/* ITEM 2 */}
+          <CircleItem text="Caixa" top="50%" left="100%" />
+
+          {/* ITEM 3 */}
+          <CircleItem text="Marketing" top="100%" left="50%" />
+
+          {/* ITEM 4 */}
+          <CircleItem text="Vendas" top="50%" left="0%" />
+
         </div>
       </div>
+
+      {/* DESKTOP (MELHORADO) */}
+      <div className="hidden md:grid md:grid-cols-5 gap-6 mt-16 max-w-6xl mx-auto">
+        {["Sistema", "Atendimento", "Caixa", "Marketing", "Vendas"].map((item) => (
+          <div
+            key={item}
+            className="bg-[#0f0f0f] border border-red-500/20 rounded-2xl p-6 
+            hover:border-red-500 hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] transition"
+          >
+            <h3 className="font-bold text-lg">{item}</h3>
+          </div>
+        ))}
+      </div>
     </section>
+  );
+}
+
+function CircleItem({ text, top, left }) {
+  return (
+    <div
+      className="absolute -translate-x-1/2 -translate-y-1/2"
+      style={{ top, left }}
+    >
+      <div className="w-20 h-20 rounded-full border border-red-500 
+      flex items-center justify-center text-xs font-semibold
+      bg-black text-white
+      shadow-[0_0_15px_rgba(255,0,0,0.6)]">
+        {text}
+      </div>
+    </div>
   );
 }
 
