@@ -313,13 +313,21 @@ function Cases() {
               rel="noreferrer"
               className="group bg-zinc-900 border border-zinc-800 rounded-3xl p-6 hover:scale-[1.02] hover:border-red-500 hover:shadow-[0_0_25px_rgba(255,0,0,0.4)] transition duration-300 block"
             >
-              <div className="h-56 md:h-64 bg-black rounded-2xl mb-5 overflow-hidden flex items-center justify-center">
+              <div className="h-[420px] md:h-[360px] bg-black rounded-2xl mb-5 overflow-hidden flex items-center justify-center">
                 {item.video ? (
-                  <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                  >
                     <source src={item.video} type="video/mp4" />
                   </video>
                 ) : (
-                  <span className="text-zinc-500">Fotos / vídeos do cliente</span>
+                  <span className="text-zinc-500">
+                    Fotos / vídeos do cliente
+                  </span>
                 )}
               </div>
 
@@ -327,7 +335,9 @@ function Cases() {
                 {item.name}
               </h3>
 
-              <p className="text-zinc-400 mt-2">Clique para ver no Instagram</p>
+              <p className="text-zinc-400 mt-2">
+                Clique para ver no Instagram
+              </p>
             </a>
           ))}
         </div>
