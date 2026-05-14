@@ -4,7 +4,7 @@ import {
   CheckCircle,
   MessageCircle,
   Headphones,
-  CashRegister,
+  BadgeDollarSign,
   Megaphone,
   TrendingUp,
 } from "lucide-react";
@@ -138,7 +138,7 @@ function Ecossistema() {
           </div>
 
           <CircleItem text="Atendimento" icon={<Headphones size={28} />} top="0%" left="50%" />
-          <CircleItem text="Caixa" icon={<CashRegister size={28} />} top="50%" left="100%" />
+          <CircleItem text="Caixa" icon={<BadgeDollarSign size={28} />} top="50%" left="100%" />
           <CircleItem text="Marketing" icon={<Megaphone size={28} />} top="100%" left="50%" />
           <CircleItem text="Vendas" icon={<TrendingUp size={28} />} top="50%" left="0%" />
 
