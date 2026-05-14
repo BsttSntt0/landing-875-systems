@@ -290,42 +290,44 @@ function Cases() {
     {
       name: "Bar do Pirata",
       link: "https://www.instagram.com/bardopirata_ibira?igsh=MXgzYjdhazhyNjl4dA==",
+      video: null,
     },
     {
       name: "Porções & Cia",
       link: "https://www.instagram.com/porcoesecia1?igsh=bWI2aWIxeHd6NGJ0",
+      video: "/videos/porcoes.mp4",
     },
   ];
 
   return (
     <section className="px-6 py-24">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-bold mb-10">
-          Cases reais
-        </h2>
+        <h2 className="text-3xl md:text-5xl font-bold mb-10">Cases reais</h2>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {cases.map((item) => (
             <a
               key={item.name}
               href={item.link}
               target="_blank"
               rel="noreferrer"
-              className="group bg-zinc-900 border border-zinc-800 rounded-3xl p-6 
-              hover:border-red-500 hover:shadow-[0_0_25px_rgba(255,0,0,0.4)] 
-              transition duration-300 cursor-pointer"
+              className="group bg-zinc-900 border border-zinc-800 rounded-3xl p-6 hover:scale-[1.02] hover:border-red-500 hover:shadow-[0_0_25px_rgba(255,0,0,0.4)] transition duration-300 block"
             >
-              <div className="h-64 bg-black rounded-2xl mb-5 flex items-center justify-center text-zinc-500">
-                Fotos / vídeos do cliente
+              <div className="h-56 md:h-64 bg-black rounded-2xl mb-5 overflow-hidden flex items-center justify-center">
+                {item.video ? (
+                  <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+                    <source src={item.video} type="video/mp4" />
+                  </video>
+                ) : (
+                  <span className="text-zinc-500">Fotos / vídeos do cliente</span>
+                )}
               </div>
 
               <h3 className="text-2xl font-bold group-hover:text-red-500 transition">
                 {item.name}
               </h3>
 
-              <p className="text-zinc-400 mt-2">
-                Clique para ver no Instagram
-              </p>
+              <p className="text-zinc-400 mt-2">Clique para ver no Instagram</p>
             </a>
           ))}
         </div>
