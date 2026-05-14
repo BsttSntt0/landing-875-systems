@@ -286,29 +286,47 @@ function Marketing() {
 }
 
 function Cases() {
-  const cases = ["Bar do Pirata", "Porções e Cia"];
+  const cases = [
+    {
+      name: "Bar do Pirata",
+      link: "https://www.instagram.com/bardopirata_ibira?igsh=MXgzYjdhazhyNjl4dA==",
+    },
+    {
+      name: "Porções & Cia",
+      link: "https://www.instagram.com/porcoesecia1?igsh=bWI2aWIxeHd6NGJ0",
+    },
+  ];
 
   return (
     <section className="px-6 py-24">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-bold mb-10">Cases reais</h2>
+        <h2 className="text-3xl md:text-5xl font-bold mb-10">
+          Cases reais
+        </h2>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {cases.map((caseName) => (
-            <div
-              key={caseName}
-              className="bg-zinc-900 border border-zinc-800 rounded-3xl p-6"
+          {cases.map((item) => (
+            <a
+              key={item.name}
+              href={item.link}
+              target="_blank"
+              rel="noreferrer"
+              className="group bg-zinc-900 border border-zinc-800 rounded-3xl p-6 
+              hover:border-red-500 hover:shadow-[0_0_25px_rgba(255,0,0,0.4)] 
+              transition duration-300 cursor-pointer"
             >
               <div className="h-64 bg-black rounded-2xl mb-5 flex items-center justify-center text-zinc-500">
                 Fotos / vídeos do cliente
               </div>
 
-              <h3 className="text-2xl font-bold">{caseName}</h3>
+              <h3 className="text-2xl font-bold group-hover:text-red-500 transition">
+                {item.name}
+              </h3>
 
               <p className="text-zinc-400 mt-2">
-                Apresentação visual dos trabalhos, campanhas e resultados.
+                Clique para ver no Instagram
               </p>
-            </div>
+            </a>
           ))}
         </div>
       </div>
