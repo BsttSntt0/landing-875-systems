@@ -42,7 +42,7 @@ function Hero() {
           <img
             src="/images/logo.png"
             alt="875 Systems"
-            className="w-40 mb-4 drop-shadow-[0_0_20px_rgba(255,0,0,0.4)]"
+            className="w-24 h-24 rounded-full object-cover mb-4 drop-shadow-[0_0_20px_rgba(255,0,0,0.5)]"
           />
 
           <h1 className="text-4xl md:text-6xl font-bold leading-tight">
@@ -112,51 +112,106 @@ function ComoFunciona() {
 }
 
 function Ecossistema() {
+  const orbitItems = [
+    { text: "Atendimento", icon: <Headphones size={26} />, top: "0%", left: "50%" },
+    { text: "Caixa", icon: <BadgeDollarSign size={26} />, top: "50%", left: "100%" },
+    { text: "Marketing", icon: <Megaphone size={26} />, top: "100%", left: "50%" },
+    { text: "Vendas", icon: <TrendingUp size={26} />, top: "50%", left: "0%" },
+  ];
+
   return (
     <section className="px-6 py-24 bg-black text-center relative overflow-hidden">
-      <h2 className="text-3xl md:text-5xl font-bold mb-4">
-        Ecossistema completo
-      </h2>
+      <motion.div
+        initial={{ opacity: 0, y: 35 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        <h2 className="text-3xl md:text-5xl font-bold mb-4">
+          Ecossistema completo
+        </h2>
 
-      <p className="text-zinc-400 mb-16">
-        Gestão, atendimento, caixa, marketing e tráfego funcionando juntos.
-      </p>
+        <p className="text-zinc-400 mb-16">
+          Gestão, atendimento, caixa, marketing e tráfego funcionando juntos.
+        </p>
+      </motion.div>
 
       <div className="md:hidden relative w-full flex justify-center items-center">
-        <div className="relative w-[330px] h-[330px]">
-          <div className="absolute inset-0 rounded-full border border-red-500/50 shadow-[0_0_35px_rgba(255,0,0,0.45)]" />
+        <motion.div
+          className="relative w-[330px] h-[330px]"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9 }}
+        >
+          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 330 330">
+            <defs>
+              <marker
+                id="arrow"
+                markerWidth="8"
+                markerHeight="8"
+                refX="4"
+                refY="4"
+                orient="auto"
+              >
+                <path d="M0,0 L8,4 L0,8 Z" fill="#ef4444" />
+              </marker>
+            </defs>
+
+            <circle
+              cx="165"
+              cy="165"
+              r="128"
+              fill="none"
+              stroke="rgba(239,68,68,0.25)"
+              strokeWidth="1.5"
+            />
+
+            <motion.circle
+              cx="165"
+              cy="165"
+              r="128"
+              fill="none"
+              stroke="rgba(239,68,68,0.9)"
+              strokeWidth="2.5"
+              strokeDasharray="70 120"
+              markerEnd="url(#arrow)"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
+              style={{ transformOrigin: "center" }}
+            />
+          </svg>
 
           <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
             <img
               src="/images/logo.png"
               alt="875 Systems"
-              className="w-32 mb-3 drop-shadow-[0_0_25px_rgba(255,0,0,0.8)]"
+              className="w-32 h-32 rounded-full object-cover mb-3 drop-shadow-[0_0_25px_rgba(255,0,0,0.8)]"
             />
-            <p className="text-sm text-zinc-300 max-w-[220px]">
-              Gestão, atendimento, caixa, marketing e tráfego funcionando juntos.
+
+            <p className="text-sm text-zinc-300 max-w-[210px]">
+              Tudo conectado para facilitar a rotina do seu negócio.
             </p>
           </div>
 
-          <CircleItem text="Atendimento" icon={<Headphones size={28} />} top="0%" left="50%" />
-          <CircleItem text="Caixa" icon={<BadgeDollarSign size={28} />} top="50%" left="100%" />
-          <CircleItem text="Marketing" icon={<Megaphone size={28} />} top="100%" left="50%" />
-          <CircleItem text="Vendas" icon={<TrendingUp size={28} />} top="50%" left="0%" />
-
-          <ArrowGlow top="18%" left="75%" rotate="45deg" />
-          <ArrowGlow top="75%" left="75%" rotate="135deg" />
-          <ArrowGlow top="75%" left="18%" rotate="225deg" />
-          <ArrowGlow top="18%" left="18%" rotate="315deg" />
-        </div>
+          {orbitItems.map((item) => (
+            <CircleItem key={item.text} {...item} />
+          ))}
+        </motion.div>
       </div>
 
       <div className="hidden md:grid md:grid-cols-5 gap-6 mt-16 max-w-6xl mx-auto">
         {["Sistema", "Atendimento", "Caixa", "Marketing", "Vendas"].map((item) => (
-          <div
+          <motion.div
             key={item}
-            className="bg-[#111] border border-red-500/30 rounded-2xl p-6 hover:scale-105 hover:border-red-500 hover:shadow-[0_0_30px_rgba(255,0,0,0.45)] transition duration-300"
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="bg-[#111] border border-red-500/30 rounded-2xl p-6 hover:scale-105 hover:border-red-500 hover:shadow-[0_0_30px_rgba(255,0,0,0.45)] transition"
           >
             <h3 className="font-bold text-lg">{item}</h3>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
@@ -165,26 +220,38 @@ function Ecossistema() {
 
 function CircleItem({ text, icon, top, left }) {
   return (
-    <div
+    <motion.div
       className="absolute -translate-x-1/2 -translate-y-1/2 z-20"
       style={{ top, left }}
+      whileHover={{ scale: 1.08 }}
+      transition={{ duration: 0.25 }}
     >
-      <div className="w-24 h-24 rounded-full border border-red-500 bg-black flex flex-col items-center justify-center gap-1 text-white shadow-[0_0_25px_rgba(255,0,0,0.85)] hover:scale-110 hover:shadow-[0_0_45px_rgba(255,0,0,1)] transition duration-300">
+      <div className="w-24 h-24 rounded-full border border-red-500 bg-black flex flex-col items-center justify-center gap-1 text-white shadow-[0_0_25px_rgba(255,0,0,0.75)]">
         <div className="text-red-500">{icon}</div>
         <span className="text-xs font-bold">{text}</span>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 function ArrowGlow({ top, left, rotate }) {
   return (
-    <div
-      className="absolute text-red-500 text-4xl z-10 drop-shadow-[0_0_12px_rgba(255,0,0,1)]"
+    <motion.div
+      className="absolute z-10"
       style={{ top, left, transform: `rotate(${rotate})` }}
+      animate={{ opacity: [0.3, 1, 0.3] }}
+      transition={{ duration: 1.5, repeat: Infinity }}
     >
-      →
-    </div>
+      <svg width="60" height="30" viewBox="0 0 60 30">
+        <path
+          d="M0 15 Q30 0 60 15"
+          stroke="red"
+          strokeWidth="2"
+          fill="transparent"
+        />
+        <polygon points="55,10 60,15 55,20" fill="red" />
+      </svg>
+    </motion.div>
   );
 }
 
