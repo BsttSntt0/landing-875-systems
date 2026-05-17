@@ -6,16 +6,24 @@
 
 body {
   margin: 0;
+  background: #030303;
   font-family: Inter, system-ui, sans-serif;
-  background: #080808;
 }
 
 ::-webkit-scrollbar {
-  height: 8px;
   width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #dc2626;
+  background: #ff1f2d;
   border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }
